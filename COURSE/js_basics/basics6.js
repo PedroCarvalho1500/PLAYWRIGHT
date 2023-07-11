@@ -1,0 +1,1 @@
+//object is collection of properties.
