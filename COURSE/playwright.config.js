@@ -18,8 +18,8 @@ module.exports = defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   reporter: 'html',
   use: {
-    browserName: 'webkit',
-    headless: false
+    browserName: 'firefox',
+    headless: true
   },
 
   /* Configure projects for major browsers */
