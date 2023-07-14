@@ -112,3 +112,71 @@ test('Page Playwright test',async ({page}) => {
     await expect(page).toHaveTitle('Google');
     //
 });
+
+test('UI Controls', async({page}) => {
+    await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+    const username_css = page.locator('css=input[id="username"]');
+    const password_css = page.locator('css=input[id="password"]');
+    const dropdown = page.locator('css=select.form-control');
+    const radio_buttons = page.locator('css=.radiotextsty');
+    const documentLink = page.locator('css=[href*="documents-request"]');
+    await dropdown.selectOption("consult");
+    await radio_buttons.last().click();
+    await (page.locator('css=#okayBtn').click());
+    //await page.pause();
+
+    //assertion
+    console.log(await(page.locator('css=.radiotextsty').last().isChecked()));
+    await expect(page.locator('css=.radiotextsty').last()).toBeChecked();
+
+    await page.locator('css=#terms').click();
+    await expect(page.locator('css=#terms')).toBeChecked();
+    await page.locator('css=#terms').uncheck();
+    console.log(await(page.locator('css=#terms').isChecked()));
+    expect( await page.locator('css=#terms').isChecked()).toBeFalsy();
+
+    await expect(documentLink).toHaveAttribute("class","blinkingText");
+    await documentLink.click();
+
+
+});
+
+
+test.only('Child windows handling', async({browser}) => {
+
+    const context = await browser.newContext();
+    const page =  await context.newPage();
+    await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+    const radio_buttons = page.locator('css=.radiotextsty');
+    const documentLink = page.locator('css=[href*="documents-request"]');
+    const username_css = page.locator('css=input[id="username"]');
+    const password_css = page.locator('css=input[id="password"]');
+    
+
+    await expect(documentLink).toHaveAttribute("class","blinkingText");
+
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'),
+            documentLink.click(),
+    ]);
+
+    //Let's say that two new tabs will be opened. In this case, you just need to add one more newPage inside the response Array
+    /*
+    const [newPage, newPage2] = await Promise.all([
+        context.waitForEvent('page'),
+            documentLink.click(),
+    ]);
+    */
+
+    const documentsRequestMessage = newPage.locator('css=p[class="im-para red"]');
+    let emailFromSecondWindow = await(documentsRequestMessage).textContent();
+    emailFromSecondWindow = await(newPage.locator('css=p[class="im-para red"]>strong')).textContent();
+    //console.log(emailFromSecondWindow);
+    await username_css.fill(emailFromSecondWindow);
+    await expect(await(documentsRequestMessage)).toBeVisible();
+    await expect(await(documentsRequestMessage).textContent()).toEqual('Please email us at mentor@rahulshettyacademy.com with below template to receive response ');
+    //console.log(await(documentsRequestMessage).isVisible());
+    
+
+
+});
