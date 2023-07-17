@@ -23,5 +23,5 @@ steps:
 #  displayName: 'Install Playwright browsers'
 - task: CmdLine@2
   inputs:
-    script: 'ls && cd PLAYWRIGHT/COURSE'
-  displayName: 'Executing shell commands'
+    script: 'ls && cd COURSE && ls'
+  displayName: 'Executing shell commands and going to Playwright directory'
