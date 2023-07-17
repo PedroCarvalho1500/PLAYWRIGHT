@@ -28,5 +28,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'npx playwright test tests/UIBasicstest.spec.js'
+    script: 'reports_junit=report.xml npx playwright test tests/UIBasicstest.spec.js --reporter=junit'
   displayName: 'Executing Playwright tests'
+- task: PublishTestResults@2
+  displayName: 'Publishing XML Report'
+  inputs:
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Alias: testRunner. Required. Test result format. Default: JUnit.
+    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
