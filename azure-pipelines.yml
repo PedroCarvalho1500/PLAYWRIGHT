@@ -28,7 +28,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'reports_junit=report.xml npx playwright test tests/UIBasicstest.spec.js --reporter=junit'
+    script: 'reports_junit=report.xml npx playwright test tests/UIBasicstest.spec.js --reporter=junit && ls'
   displayName: 'Executing Playwright tests'
 - task: PublishTestResults@2
   displayName: 'Publishing XML Report'
