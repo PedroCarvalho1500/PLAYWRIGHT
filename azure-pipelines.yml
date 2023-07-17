@@ -20,7 +20,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'npm init playwright@latest'
+    script: 'npm init playwright@latest -y'
 
 - script: |
     npm install
