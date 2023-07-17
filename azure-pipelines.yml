@@ -13,14 +13,17 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '18'
   displayName: 'Install Node.js'
-
-- task: CmdLine@2
-  inputs:
-    script: 'npm init playwright@latest -y'
+- script: npm ci
+  displayName: 'npm ci'
+- script: npx playwright install --with-deps
+  displayName: 'Install Playwright browsers'
+- script: npx playwright test
+  displayName: 'Run Playwright tests'
 
 - script: |
     npm install
