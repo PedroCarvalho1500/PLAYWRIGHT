@@ -13,20 +13,25 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '18'
   displayName: 'Install Node.js'
-  
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
-    addToPath: true
-    architecture: 'x64'
-  displayName: 'Install Python3'
 
-- script: |
-    npm install
-    npm run build
-    node --version
-  displayName: 'npm install and build'
+- script: npx playwright install --with-deps && npm install @playwright/test
+  displayName: 'Install Playwright browsers'
+- task: CmdLine@2
+  inputs:
+    script: 'ls && cd COURSE && ls'
+  displayName: 'Executing shell commands and going to Playwright directory'
+
+- task: CmdLine@2
+  inputs:
+    script: 'reports_junit=report.xml npx playwright test tests/UIBasicstest.spec.js --reporter=junit && cd COURSE && ls'
+  displayName: 'Executing Playwright tests'
+- task: PublishTestResults@2
+  displayName: 'Publishing XML Report'
+  inputs:
+    testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Alias: testRunner. Required. Test result format. Default: JUnit.
+    testResultsFiles: 'reports_junit/*.xml' # string. Required. Test results files. Default: reports_junit/*.xml.
