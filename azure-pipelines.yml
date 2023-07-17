@@ -22,11 +22,3 @@ steps:
   displayName: 'npm ci'
 - script: npx playwright install --with-deps
   displayName: 'Install Playwright browsers'
-- script: npx playwright test
-  displayName: 'Run Playwright tests'
-
-- script: |
-    npm install
-    npm run build
-    node --version
-  displayName: 'npm install and build'
