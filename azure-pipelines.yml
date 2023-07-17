@@ -34,4 +34,4 @@ steps:
   displayName: 'Publishing XML Report'
   inputs:
     testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Alias: testRunner. Required. Test result format. Default: JUnit.
-    testResultsFiles: '**/TEST-*.xml' # string. Required. Test results files. Default: **/TEST-*.xml.
+    testResultsFiles: '**/*.xml' # string. Required. Test results files. Default: **/*.xml.
