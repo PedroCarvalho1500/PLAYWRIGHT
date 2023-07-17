@@ -14,10 +14,14 @@ pool:
 
 steps:
 
-- task: NodeTool@0
-  inputs:
-    versionSpec: '18'
-  displayName: 'Install Node.js'
+#- task: NodeTool@0
+#  inputs:
+#    versionSpec: '18'
+#  displayName: 'Install Node.js'
 
-- script: npx playwright install --with-deps
-  displayName: 'Install Playwright browsers'
+#- script: npx playwright install --with-deps
+#  displayName: 'Install Playwright browsers'
+- task: CmdLine@2
+  inputs:
+    script: 'ls && cd PLAYWRIGHT/COURSE'
+  displayName: 'Executing shell commands'
