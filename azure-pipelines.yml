@@ -17,13 +17,10 @@ steps:
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
-  
-- task: UsePythonVersion@0
+
+- task: CmdLine@2
   inputs:
-    versionSpec: '3.x'
-    addToPath: true
-    architecture: 'x64'
-  displayName: 'Install Python3'
+    script: 'npm init playwright@latest'
 
 - script: |
     npm install
