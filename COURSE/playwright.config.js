@@ -19,7 +19,10 @@ module.exports = defineConfig({
   reporter: 'html',
   use: {
     browserName: 'webkit',
-    headless: true
+    headless: true,
+    screenshot: 'off',
+    trace: 'retain-on-failure' //off,on
+
   },
 
   /* Configure projects for major browsers */

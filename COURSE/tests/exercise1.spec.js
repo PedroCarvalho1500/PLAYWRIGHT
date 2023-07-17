@@ -54,6 +54,7 @@ test('Login page successfull',async ({browser}) => {
     console.log(await(products_list).first().textContent());
     console.log(await (products_list).allTextContents());
     
+    
     console.log(await (message_products_dashboard_xpath).textContent());
     await expect(await (message_products_dashboard_xpath).textContent()).toContain(" User can only see maximum 9 products on a page");
     await expect(sign_out_button_xpath).toBeVisible() == true;
