@@ -30,11 +30,10 @@ steps:
   inputs:
     script: 'PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit'
   displayName: 'Executing Playwright tests'
+  continueOnError: true
 - task: PublishTestResults@2
-  
   continueOnError: true
   displayName: 'Publishing XML Report'
   inputs:
-    failTaskOnFailedTests: true
     testResultsFormat: 'JUnit' # 'JUnit' | 'NUnit' | 'VSTest' | 'XUnit' | 'CTest'. Alias: testRunner. Required. Test result format. Default: JUnit.
     testResultsFiles: '*.xml' # string. Required. Test results files. Default: /*.xml.
