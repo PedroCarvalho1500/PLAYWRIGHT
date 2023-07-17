@@ -1,0 +1,53 @@
+<testsuites id="" name="" tests="5" failures="1" skipped="0" errors="0" time="32.23654399999976">
+<testsuite name="UIBasicstest.spec.js" timestamp="2023-07-17T16:47:08.310Z" hostname="" tests="5" failures="1" skipped="0" time="61.338" errors="0">
+<testcase name="Browser Context Playwright test" classname="UIBasicstest.spec.js" time="13.891">
+</testcase>
+<testcase name="Browser Context Playwright test 2" classname="UIBasicstest.spec.js" time="30">
+<failure message="UIBasicstest.spec.js:47:1 Browser Context Playwright test 2" type="FAILURE">
+<![CDATA[  UIBasicstest.spec.js:47:1 › Browser Context Playwright test 2 ────────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.waitFor: Target closed
+    =========================== logs ===========================
+    waiting for locator('xpath=//h1[contains(text(),"Shop Name")]') to be visible
+    ============================================================
+
+      89 |     //     ]
+      90 |     //     );
+    > 91 |     await page.locator('xpath=//h1[contains(text(),"Shop Name")]').waitFor();
+         |                                                                    ^
+      92 |     const allTitles = await products_css.allTextContents();
+      93 |     console.log(allTitles)
+      94 |     
+
+        at /home/pedrossd/Desktop/ESTUDOS_QA/PLAYWRIGHT/PLAYWRIGHT/COURSE/tests/UIBasicstest.spec.js:91:68
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/UIBasicstest-Browser-Context-Playwright-test-2/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/UIBasicstest-Browser-Context-Playwright-test-2/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/UIBasicstest-Browser-Context-Playwright-test-2/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Page Playwright test" classname="UIBasicstest.spec.js" time="3.957">
+</testcase>
+<testcase name="UI Controls" classname="UIBasicstest.spec.js" time="5.485">
+<system-out>
+<![CDATA[[33mtrue[39m
+[33mfalse[39m
+]]>
+</system-out>
+</testcase>
+<testcase name="Child windows handling" classname="UIBasicstest.spec.js" time="8.005">
+</testcase>
+</testsuite>
+</testsuites>
