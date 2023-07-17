@@ -18,7 +18,7 @@ module.exports = defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   reporter: 'html',
   use: {
-    browserName: 'firefox',
+    browserName: 'webkit',
     headless: true,
     screenshot: 'off',
     trace: 'retain-on-failure' //off,on
