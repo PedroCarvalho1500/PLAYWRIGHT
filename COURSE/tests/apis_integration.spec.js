@@ -35,6 +35,7 @@ test.only('API Integration Bypass and creating order',async ({browser}) => {
 
 
     console.log("ALL ORDERS NUMBERS: ");
+    await (order_list_products_xpath.first()).waitFor();
     console.log(await (order_list_products_xpath).allTextContents());
     await expect(await (order_list_products_xpath).allTextContents()).toContain(order_id)
 
