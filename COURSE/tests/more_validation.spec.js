@@ -37,7 +37,7 @@ test('Popup validations', async ({page}) => {
 
 
 
-test.only('Handle Frames', async ({page}) => {
+test('Handle Frames', async ({page}) => {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
      
     //CHANGING FRAME FOCUS
@@ -55,7 +55,7 @@ test.only('Handle Frames', async ({page}) => {
     //const new_frame = page.locator('#courses-iframe').locator('xpath=//li[@class="current"]/a[contains(text(),"All Access plan")]');
     await (new_frame_manage).locator('xpath=//div[@class="text"]/h2').waitFor({timeout: 20000});
     const text_join_subscribers_xpath = new_frame_manage.locator('xpath=//div[@class="text"]/h2');
-
+    
     //console.log(await(text_join_subscribers_xpath).textContent());
 
     const textConteudo = await(text_join_subscribers_xpath).textContent();
