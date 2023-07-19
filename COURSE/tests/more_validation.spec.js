@@ -84,3 +84,42 @@ test('Handle Frames', async ({page}) => {
 
 
 });
+
+
+
+
+
+test('Screenshot & Visual Comparison', async ({page}) => {
+    await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
+    const hide_element_button_css = page.locator('css=#hide-textbox');
+    const show_element_button_css = page.locator('css=#show-textbox');
+    const element_displayed_example_css = page.locator('css=#displayed-text');
+    const name_field_css = page.locator('css=#name');
+    const confirm_button_popup_css = page.locator('css=#confirmbtn');
+    const mouse_over_css = page.locator('css=#mousehover');
+
+    await (element_displayed_example_css).waitFor();
+    await expect(element_displayed_example_css).toBeVisible();
+    await (hide_element_button_css).screenshot({path: 'hidden_element.png'})
+    await (hide_element_button_css).click();
+    await (page.screenshot({path: 'screenshot.png'}));
+    
+    await expect(element_displayed_example_css).toBeHidden();
+
+    // screenshot -> store -> screenshot -> Compare two screenshot and verify if they are different from each other.
+
+
+
+});
+
+
+
+test.only('Visual comparison between screenshots', async ({page}) => {
+    await page.goto('http://www.rediff.com/');
+    await expect(await page.screenshot()).toMatchSnapshot('landing.png');
+
+    // screenshot -> store -> screenshot -> Compare two screenshot and verify if they are different from each other.
+
+
+
+});
