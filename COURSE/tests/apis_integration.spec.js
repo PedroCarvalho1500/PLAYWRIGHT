@@ -17,7 +17,7 @@ test.beforeAll(async () => {
 });
 
 
-test.only('API Integration Bypass and creating order',async ({browser}) => {
+test('API Integration Bypass and creating order',async ({browser}) => {
     const context = await browser.newContext();
     const page =  await context.newPage();
 
@@ -50,6 +50,9 @@ test.only('API Integration Bypass and creating order',async ({browser}) => {
 
     await expect (await (email_receiver_xpath).textContent()).toContain("anshika@gmail.com");
 });
+
+
+
 
 
 //anshika@gmail.com
