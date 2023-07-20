@@ -9,5 +9,5 @@ const {hello,helloworld} = require('./demo/hello')
 
 test('My first test', async ({page}) => {
     await page.goto('https://google.com')
-    await expect(page).toHaveTitle('Gogle')
+    await expect(page).toHaveTitle('Google')
 })

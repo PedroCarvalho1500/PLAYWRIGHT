@@ -1,5 +1,6 @@
 const {test, expect} = require('@playwright/test');
-
+//JSON -> string -> js object
+const UIBasicsDataSet = JSON.parse(JSON.stringify(require('./utils/UIBasicstestTestData.json')));
 
 test('Browser Context Playwright test',async ({browser}) => {
     //playwright code-
@@ -16,8 +17,8 @@ test('Browser Context Playwright test',async ({browser}) => {
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
 
     //css, xpath
-    await page.locator('css=input[id="username"]').type('rahulshetty');
-    await page.locator('css=input[id="password"]').type('learning');
+    await page.locator('css=input[id="username"]').type(UIBasicsDataSet.username);
+    await page.locator('css=input[id="password"]').type(UIBasicsDataSet.password);
     await page.locator('css=input[id="signInBtn"]').click();
     //await sleep(3000);
     //console.log(await page.locator('css=div[style*="block"]').textContent());
