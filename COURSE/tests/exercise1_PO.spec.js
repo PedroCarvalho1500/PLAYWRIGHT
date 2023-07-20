@@ -23,7 +23,7 @@ test('Login page successfull',async ({browser}) => {
 
 
 
-test.only('Create a new Order to buy a product',async ({browser}) => {
+test('Create a new Order to buy a product',async ({browser}) => {
     const context = await browser.newContext();
     const page =  await context.newPage();
 
@@ -42,32 +42,8 @@ test.only('Create a new Order to buy a product',async ({browser}) => {
     const creditCardPage = new CreditCardPage(page,email_random);
     await creditCardPage.fillingInfoCreditCard();
 
-    const ordersPage = new OrdersPage(page);
+    const ordersPage = new OrdersPage(page,email_random);
     await ordersPage.checkOrderSuccessfull();
+    await ordersPage.openOrderHistory();
 
-
-
-    
-
-
-    // await (order_history_button_xpath).click();
-
-
-
-    // await (page.locator('xpath=//button[contains(text(),"Go Back to Cart")]').waitFor());        
-    
-    // console.log("ALL ORDERS NUMBERS: ");
-    // console.log(await (order_list_products_xpath).allTextContents());
-    // await expect(await (order_list_products_xpath).allTextContents()).toContain(order_number_finished)
-
-    // const view_order_button_xpath = page.locator('xpath=//th[contains(text(),"'+order_number_finished+'")]/parent::tr/descendant::button[contains(text(),"View")]');
-
-    // await (view_order_button_xpath).click();
-
-    // const button_view_orders_xpath = page.locator('xpath=//div[contains(text()," View Orders ")]');
-    // await (button_view_orders_xpath).waitFor();
-
-    // let email_receiver_xpath = page.locator('xpath=//div[contains(text()," Delivery Address ")]/parent::div/descendant::p[1]')
-
-    // await expect (await (email_receiver_xpath).textContent()).toContain(email_random);
 });

@@ -46,7 +46,7 @@ class CreditCardPage
     await expect (await(this.coupon_applied_xpath)).toBeVisible() == true;
 
     await (this.name_on_card_field_xpath).fill("MY_NAME");
-    await (this.place_order_button_xpath).click();
+    await (this.place_order_button_xpath).click({force: true});
 
 
     }
