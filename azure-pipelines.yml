@@ -26,10 +26,8 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '18'
-  displayName: 'Install Cucumber JS'
-
 - script: ls && cd COURSE && npm install @cucumber/cucumber
-  displayName: 'Install Playwright browsers'
+  displayName: 'Install Cucumber JS'
 # - task: CmdLine@2
 #   inputs:
 #     script: 'ls && cd COURSE && ls'
