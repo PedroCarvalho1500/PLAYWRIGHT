@@ -19,18 +19,33 @@ steps:
     versionSpec: '18'
   displayName: 'Install Node.js'
 
-- script: npx playwright install --with-deps && npm install @playwright/test
+- script:  npx playwright install --with-deps && npm install @playwright/test
   displayName: 'Install Playwright browsers'
-- task: CmdLine@2
+
+
+- task: NodeTool@0
   inputs:
-    script: 'ls && cd COURSE && ls'
-  displayName: 'Executing shell commands and going to Playwright directory'
+    versionSpec: '18'
+- script: ls && cd COURSE && npm install @cucumber/cucumber
+  displayName: 'Install Cucumber JS'
+# - task: CmdLine@2
+#   inputs:
+#     script: 'ls && cd COURSE && ls'
+#   displayName: 'Executing shell commands and going to Playwright directory'
+
+# - task: CmdLine@2
+#   inputs:
+#     script: 'PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit'
+#   displayName: 'Executing Playwright tests'
+#   continueOnError: true
 
 - task: CmdLine@2
   inputs:
-    script: 'PLAYWRIGHT_JUNIT_OUTPUT_NAME=results.xml npx playwright test --reporter=junit'
-  displayName: 'Executing Playwright tests'
+    script: 'ls && cd COURSE && npx cucumber-js'
+  displayName: 'Executing Playwright tests using Cucumber'
   continueOnError: true
+
+
 - task: PublishTestResults@2
   continueOnError: true
   displayName: 'Publishing XML Report'
