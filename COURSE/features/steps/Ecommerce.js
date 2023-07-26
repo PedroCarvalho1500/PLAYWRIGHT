@@ -9,8 +9,6 @@ const playwright = require('@playwright/test')
 
 Given('a login to Ecommerce application with {string} and {string}',{timeout: 30000} ,async function(username, password){
     browser = await playwright.chromium.launch({headless: false,width:1200, height:1200});
-    //this.username = username;
-    //this.password = password;
     let context = await browser.newContext();
     this.page =  await context.newPage();
 
@@ -45,5 +43,4 @@ Then('Verify order in preset in the OrderHistory', {timeout: 30000}, async funct
     this.ordersPage = new OrdersPage(this.page,this.email_random);
     await this.ordersPage.checkOrderSuccessfull();
     await this.ordersPage.openOrderHistory();
-    await browser.close();
 })
