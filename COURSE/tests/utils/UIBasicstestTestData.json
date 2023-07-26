@@ -1,4 +1,11 @@
-{
-    "username": "rahulshettyacademy",
-    "password": "learning"
-}
+[
+    {
+        "username": "rahulshettyacademy",
+        "password": "learning"
+    },
+    {
+        "username": "anshika@gmail.com",
+        "password": "learning"
+    }
+
+]

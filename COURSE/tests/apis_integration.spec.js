@@ -16,6 +16,8 @@ test.beforeAll(async () => {
     //apiContext.post("")
 });
 
+//test.describe.configure({mode: 'parallel'});
+//test.describe.configure({mode: 'serial'});
 
 test('API Integration Bypass and creating order',async ({browser}) => {
     const context = await browser.newContext();

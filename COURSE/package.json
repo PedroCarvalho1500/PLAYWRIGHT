@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": 
-  {
-    "test": "npx playwright test --headed"
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "webTests": "npx playwright test ----grep @Web",
+    "APITests": "npx playwright test ----grep @API",
+    "SafariNewConfig": "npx playwright test --config=playwright.config1.js --project=chrome"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.36.2",
+    "allure-playwright": "^2.4.0"
   }
 }

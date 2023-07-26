@@ -9,6 +9,10 @@ const {APIUtils} = require('./utils/APIUtils');
 let token = ""
 const fakePayloadOrders = {data:[], message: 'No Orders'}
 
+
+//test.describe.configure({mode: 'parallel'});
+//test.describe.configure({mode: 'serial'});
+
 test.beforeAll(async () => {
     const apiContext = await request.newContext();
     const apiUtils = new APIUtils(apiContext);
@@ -22,7 +26,7 @@ test.beforeAll(async () => {
 
 
 
-test('Intercepting response', async ({page}) => {
+test('@Web Intercepting response', async ({page}) => {
     await page.addInitScript(value => {
         window.localStorage.setItem('token',value)
     }, token);

@@ -1,4 +1,5 @@
 const {test, expect} = require('@playwright/test');
+const {customtest} = require('./utils/test-base');
 //JSON -> string -> js object
 const UIBasicsDataSet = JSON.parse(JSON.stringify(require('./utils/UIBasicstestTestData.json')));
 
@@ -181,3 +182,4 @@ test('Child windows handling', async({browser}) => {
 
 
 });
+
