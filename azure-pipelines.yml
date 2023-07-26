@@ -19,7 +19,7 @@ steps:
     versionSpec: '18'
   displayName: 'Install Node.js'
 
-- script: npx playwright install --with-deps && npm install @playwright/test
+- script: npx playwright install --with-deps && npm install @playwright/test && npm install --save-dev @cucumber/cucumber
   displayName: 'Install Playwright browsers'
 - task: CmdLine@2
   inputs:
