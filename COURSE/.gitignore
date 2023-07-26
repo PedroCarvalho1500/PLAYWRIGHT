@@ -4,3 +4,6 @@ node_modules/
 /playwright/.cache/
 tests/olb_testing.spec.js
 /tests/olb_testing.spec.js
+CUCUMBER/node_modules
+test-results
+playwright-report

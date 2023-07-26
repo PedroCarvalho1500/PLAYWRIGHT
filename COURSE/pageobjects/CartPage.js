@@ -19,9 +19,9 @@ class CartPage
         await (this.checkout_button_xpath).waitFor();
         await expect(await(this.checkout_button_xpath)).toBeVisible();
         //await (cart_elements_list_xpath).waitFor();
-        console.log(await(this.cart_elements_list_xpath).first().allTextContents());
+        //console.log(await(this.cart_elements_list_xpath).first().allTextContents());
         await expect(await(this.cart_elements_list_xpath).first().allTextContents()).toContain('iphone 13 pro');
-        console.log(await(this.order_number).textContent());
+        //console.log(await(this.order_number).textContent());
 
         await (this.checkout_button_xpath).click();
 

@@ -6,11 +6,11 @@ class CreditCardPage
     {
         this.page = page;
         this.email_random = email_random;
-        this.current_email_xpath = this.page.locator('xpath=//div[@class="details__user"]/descendant::div/descendant::label');
         this.cvv_code_field_xpath = this.page.locator('xpath=//div[contains(text(),"CVV")]/following::input[1]');
         this.country_field_xpath = this.page.locator('xpath=//div[@class="user__address"]/descendant::div/descendant::input');
         this.coupon_field_css = this.page.locator('css=input[name="coupon"]');
         this.coupon_value = "rahulshettyacademy";
+        this.current_email_xpath = this.page.locator('xpath=//div[@class="details__user"]/descendant::div/descendant::label');
         this.apply_coupon_button_xpath = this.page.locator('xpath=//button[contains(text(),"Coupon")]');
         this.coupon_applied_xpath = this.page.locator('xpath=//p[contains(text(),"Applied")]');
         this.place_order_button_xpath = this.page.locator('xpath=//a[contains(text(),"Place Order")]');

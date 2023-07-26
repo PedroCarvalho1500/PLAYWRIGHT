@@ -15,5 +15,8 @@
   "devDependencies": {
     "@playwright/test": "^1.36.2",
     "allure-playwright": "^2.4.0"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^9.3.0"
   }
 }
