@@ -4,7 +4,9 @@ const {expect} = require('@playwright/test');
 const playwright = require('@playwright/test')
 
 
-Before({timeout: 30000},async function() {
+
+
+Before({timeout: 30000, tags: "@Regression"},async function() {
     browser = await playwright.chromium.launch({headless: true,width:1200, height:1200});
     let context = await browser.newContext();
     this.page =  await context.newPage();
@@ -14,6 +16,14 @@ Before({timeout: 30000},async function() {
 
     await this.loginPage.goTo();
     this.email_random = await this.loginPage.validLogin();
+})
+
+
+
+Before({timeout: 30000, tags: "@Validation"},async function() {
+    browser = await playwright.chromium.launch({headless: true,width:1200, height:1200});
+    let context = await browser.newContext();
+    this.page =  await context.newPage();
 })
 
 
@@ -28,7 +38,7 @@ After({timeout: 30000},async function() {
 AfterStep(async function ({result}){
     console.log("RESULT: "+result.status);
 
-    if(result.status == "PASSED"){
+    if(result.status != "PASSED"){
         await this.page.screenshot({path: 'screenshot_bdd.png'});
     }
 })
