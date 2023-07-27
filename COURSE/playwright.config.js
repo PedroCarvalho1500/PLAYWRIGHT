@@ -10,6 +10,8 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
+  workers: 2,
+  retries: 3,
   expect: {
     timeout: 12000
   },
@@ -18,7 +20,7 @@ module.exports = defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   reporter: 'html',
   use: {
-    browserName: 'webkit',
+    browserName: 'chromium',
     headless: true,
     screenshot: 'only-on-failure',
     trace: 'on'

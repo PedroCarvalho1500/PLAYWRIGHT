@@ -8,7 +8,7 @@ test('record demo test', async ({ page }) => {
   await page.locator('[data-test="password"]').fill('secret_sauce');
   await page.locator('[data-test="login-button"]').click();
   await page.locator('[data-test="product_sort_container"]').selectOption('lohi');
-  await page.locator('a').filter({ hasText: '1' }).click();
+  await page.locator('#add-to-cart-sauce-labs-onesie').first().click();
   await page.getByText('Continue ShoppingCheckout').click();
   await page.locator('[data-test="checkout"]').click();
   await page.locator('[data-test="cancel"]').click();

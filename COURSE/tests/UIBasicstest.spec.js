@@ -18,8 +18,9 @@ test('Browser Context Playwright test',async ({browser}) => {
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
 
     //css, xpath
-    await page.locator('css=input[id="username"]').type(UIBasicsDataSet.username);
-    await page.locator('css=input[id="password"]').type(UIBasicsDataSet.password);
+    console.log(UIBasicsDataSet[2].username)
+    await page.locator('css=input[id="username"]').fill(UIBasicsDataSet[2].username);
+    await page.locator('css=input[id="password"]').fill(UIBasicsDataSet[2].password);
     await page.locator('css=input[id="signInBtn"]').click();
     //await sleep(3000);
     //console.log(await page.locator('css=div[style*="block"]').textContent());
@@ -27,7 +28,7 @@ test('Browser Context Playwright test',async ({browser}) => {
     //await expect(page.locator('xpath=//strong[contains(text(),"Incorrect")]/parent::div')).toBeVisible() == true;
 
     //wait until this locator shown up page
-    await expect(page.locator('css=div[style*="block"]')).toBeVisible() == true;
+    await expect(await page.locator('css=div[style*="block"]')).toBeVisible() == true;
     await expect(await page.locator('css=div[style*="block"]').textContent()).toEqual("Incorrect username/password.");
 
     await username_css.fill("");

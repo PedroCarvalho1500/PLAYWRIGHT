@@ -50,7 +50,7 @@ test('API Integration Bypass and creating order',async ({browser}) => {
 
     let email_receiver_xpath = page.locator('xpath=//div[contains(text()," Delivery Address ")]/parent::div/descendant::p[1]')
 
-    await expect (await (email_receiver_xpath).textContent()).toContain("anshika@gmail.com");
+    await expect (await (email_receiver_xpath).textContent()).toContain("rahulshetty@gmail.com");
 });
 
 

@@ -54,7 +54,7 @@ test('Handle Frames', async ({page}) => {
     //}
     //await (new_frame_manage.locator('xpath=//a[contains(text(),"All Access plan")]').last()).click({force: true});
     //const new_frame = page.locator('#courses-iframe').locator('xpath=//li[@class="current"]/a[contains(text(),"All Access plan")]');
-    await (new_frame_manage).locator('xpath=//div[@class="text"]/h2').waitFor({timeout: 20000});
+    //await (new_frame_manage).locator('xpath=//div[@class="text"]/h2').waitFor({timeout: 40000});
     const text_join_subscribers_xpath = new_frame_manage.locator('xpath=//div[@class="text"]/h2');
     
     //console.log(await(text_join_subscribers_xpath).textContent());
@@ -115,7 +115,7 @@ test('Screenshot & Visual Comparison', async ({page}) => {
 
 
 
-test('Visual comparison between screenshots', async ({page}) => {
+test.only('Visual comparison between screenshots', async ({page}) => {
     await page.goto('http://www.rediff.com/');
     await expect(await page.screenshot()).toMatchSnapshot('landing.png');
 
