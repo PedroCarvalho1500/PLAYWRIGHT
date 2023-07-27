@@ -115,7 +115,7 @@ test('Screenshot & Visual Comparison', async ({page}) => {
 
 
 
-test.only('Visual comparison between screenshots', async ({page}) => {
+test('Visual comparison between screenshots', async ({page}) => {
     await page.goto('http://www.rediff.com/');
     await expect(await page.screenshot()).toMatchSnapshot('landing.png');
 
