@@ -28,10 +28,6 @@ steps:
     versionSpec: '18'
 - script: ls && cd COURSE && npm install @cucumber/cucumber
   displayName: 'Install Cucumber JS'
-- task: CmdLine@2
-  inputs:
-    script: 'ls && cd COURSE && ls'
-  displayName: 'Executing shell commands and going to Playwright directory'
 
 - task: CmdLine@2
   inputs:
