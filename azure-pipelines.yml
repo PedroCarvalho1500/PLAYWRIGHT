@@ -35,11 +35,11 @@ steps:
   displayName: 'Executing Playwright tests'
   continueOnError: true
 
-- task: CmdLine@2
-  inputs:
-    script: 'ls && cd COURSE && npx cucumber-js'
-  displayName: 'Executing Playwright tests using Cucumber'
-  continueOnError: true
+# - task: CmdLine@2
+#   inputs:
+#     script: 'npx cucumber-js'
+#   displayName: 'Executing Playwright tests using Cucumber'
+#   continueOnError: true
 
 
 - task: PublishTestResults@2
