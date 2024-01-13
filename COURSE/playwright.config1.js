@@ -29,7 +29,7 @@ module.exports = defineConfig({
         headless: true,
         screenshot: 'only-on-failure',
         trace: 'on',
-        //...devices['iPad Mini']
+        ...devices['iPhone 13 Pro landscape']
         //viewport: {width: 500, height: 500}
         //trace: 'retain-on-failure' //off,on
     

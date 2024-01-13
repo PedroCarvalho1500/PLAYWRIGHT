@@ -101,7 +101,7 @@ test('Browser Context Playwright test 2',async ({browser}) => {
 });
 
 
-test('Page Playwright test',async ({page}) => {
+test('@Web Page Playwright test',async ({page}) => {
     //playwright code-
     //step1 - open browser
     //await
@@ -116,7 +116,7 @@ test('Page Playwright test',async ({page}) => {
     //
 });
 
-test('UI Controls', async({page}) => {
+test('@Web UI Controls', async({page}) => {
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     const username_css = page.locator('css=input[id="username"]');
     const password_css = page.locator('css=input[id="password"]');
@@ -145,7 +145,7 @@ test('UI Controls', async({page}) => {
 });
 
 
-test('Child windows handling', async({browser}) => {
+test('@Web Child windows handling', async({browser}) => {
 
     const context = await browser.newContext();
     const page =  await context.newPage();

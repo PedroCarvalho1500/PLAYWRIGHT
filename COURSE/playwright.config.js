@@ -11,14 +11,14 @@ module.exports = defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
   workers: 2,
-  retries: 3,
+  retries: 1,
   expect: {
     timeout: 12000
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
-  reporter: 'html',
+  reporter: [['html', { open: 'never' }]],
   use: {
     browserName: 'chromium',
     headless: true,
