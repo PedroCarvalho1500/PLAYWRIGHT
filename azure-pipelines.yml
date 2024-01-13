@@ -37,7 +37,7 @@ steps:
 
 # - task: CmdLine@2
 #   inputs:
-#     script: 'ls && cd COURSE && npx cucumber-js'
+#     script: 'npx cucumber-js'
 #   displayName: 'Executing Playwright tests using Cucumber'
 #   continueOnError: true
 
