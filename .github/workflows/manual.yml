@@ -1,5 +1,5 @@
 
-name: Run API Tests
+name: Run Playwright Tests
 
 on: [push, pull_request]
 # on:
@@ -16,3 +16,13 @@ jobs:
 
       - name: Install Playwright
         run: npx playwright install --with-deps && npm install @playwright/tests
+
+      - name: Run Playwright cucumber tests
+        run: npx cucumber-js
+        continue-on-error: true
+
+      # - name: Upload Report 
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: newman-report
+      #     path: newman/report.html
