@@ -1,0 +1,72 @@
+# This is a basic workflow that is manually triggered
+
+
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+
+name: Run API Tests
+
+on: [push, pull_request]
+# on:
+#   schedule:
+#     - cron: '0 22 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps && npm install @playwright/test
+
+      # - name: Install HTML REPORT
+      #   run: npm install -g newman-reporter-htmlextra
+
+      # - name: Debug - List Files
+      #   run: ls -R
+
+      # - name: Run API Tests
+      #   run: newman run DEMO_LOTR_API.postman_collection.json -e LOTR_API_ENVIRONMENT.postman_environment.json --env-var api_key=${{ secrets.API_KEY }} -r htmlextra --reporter-htmlextra-export newman/report.html
+      #   continue-on-error: true
+
+      # - name: Debug - List Files
+      #   run: ls -R newman
+
+      # - name: Upload Report 
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: newman-report
+      #     path: newman/report.html
+
+#name: My First GitHubActions pipeline
+# on:
+#   push:
+#     branches:
+#       'main'
+
+# jobs:
+#   run_first_actions:
+#     runs-on: ubuntu-20.04
+
+#     steps:
+
+#       - name: Install Node and NPM
+#         run: sudo apt update && sudo apt install nodejs && sudo node -v && sudo apt install npm && npm -v
+
+#       - name: Install Newman
+#         run: npm install -g newman
+
+#       # - name: Check for the files and directories
+#       #   run: ls -a && cd .. && ls && cd API_TESTS_TKINTER
+
+#       - name: Run API Tests with Newman
+#         run: newman run API_TESTS/DEMO_LOTR_API.postman_collection.json --delay-request 200
+
+      # - name: Debug - List Files
+      #   run: cd .. && cd .. && cd API_TESTS_TKINTER && ls -R

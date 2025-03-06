@@ -10,22 +10,19 @@ const { defineConfig, devices } = require('@playwright/test');
 module.exports = defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
-  workers: 2,
+  workers: 4,
   retries: 1,
   expect: {
     timeout: 12000
   },
-  /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   reporter: [['html', { open: 'never' }]],
   use: {
     browserName: 'chromium',
-    headless: true,
+    headless: false,
     screenshot: 'only-on-failure',
     trace: 'on'
-    //trace: 'retain-on-failure' //off,on
-
   },
 
   /* Configure projects for major browsers */

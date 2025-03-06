@@ -1,6 +1,6 @@
 const {test,expect, request} = require('@playwright/test');
 const {APIUtils} = require('./utils/APIUtils');
-
+const {LoginPage} = require('../pageobjects/LoginPage');
 
 
 
@@ -34,7 +34,11 @@ test('@Web Intercepting response', async ({page}) => {
     const orders_button_xpath = page.locator('xpath=//button[@routerlink="/dashboard/myorders"]');
 
     await page.goto('https://rahulshettyacademy.com/client');
-    await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/62742549e26b7e1a10e9fce0',
+    //let page = "";
+
+
+    
+    //await page.route('https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/62742549e26b7e1a10e9fce0',
     async route => 
     {
         //await apiRequestContext.dispose();
@@ -45,9 +49,9 @@ test('@Web Intercepting response', async ({page}) => {
         //console.log(json);
         //const response = await page.request.fetch(route.request());
 
-        const response = await page.request.fetch(route.request());
+        //const response = await page.request.fetch(route.request());
         //console.log(response);
-        //let response_from_route_request = await route.fetch();
+        let response_from_route_request = await route.fetch();
         //Fullfill will send a response to browser.
         let body = JSON.stringify(fakePayloadOrders);
         route.fulfill
@@ -59,7 +63,7 @@ test('@Web Intercepting response', async ({page}) => {
             }
         );
         //Interceting the response - API response -> |||MOCKING RESPONSE HERE (FAKE RESPONSE PUT) ||| -> browser->browser will render data on front end
-    })
+    }
 
 
     await (orders_button_xpath).click();

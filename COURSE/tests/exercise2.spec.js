@@ -76,7 +76,7 @@ test('Create a new Order to buy a product',async ({browser}) => {
 
     await(product_iphone13_pro_add_to_cart_xpath).click();
     await expect(await(successfull_added_to_the_cart_xpath)).toBeVisible() == true
-
+    
     await (cart_button_xpath).click();
 
     await (checkout_button_xpath).waitFor();

@@ -29,7 +29,6 @@ test('Create a new Order to buy a product',async ({browser}) => {
 
     const loginPage = new LoginPage(page);
     
-
     await loginPage.goTo();
     const email_random = await loginPage.validLogin();
 

@@ -14,7 +14,7 @@ function gerarNumerosEntre(min,max, tempo){
     })
 }
 
-function gerarVariosNumeros(){
+async function gerarVariosNumeros(){
     return Promise.all([
         gerarNumerosEntre(1,60,1000),
         gerarNumerosEntre(1,60,500),

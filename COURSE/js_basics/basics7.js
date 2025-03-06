@@ -20,6 +20,8 @@ class Person
     }
 }
 
+
+
 // let person1 = new Person("Thomas","Mendez");
 // console.log(person1.fullName());
 // console.log(person1.location);

@@ -38,7 +38,7 @@ test('Browser Context Playwright test',async ({browser}) => {
     await Promise.all(
         [
         page.waitForNavigation(),
-            signIn.click()
+        signIn.click()
         ]
         );
 
@@ -126,9 +126,7 @@ test('@Web UI Controls', async({page}) => {
     await dropdown.selectOption("consult");
     await radio_buttons.last().click();
     await (page.locator('css=#okayBtn').click());
-    //await page.pause();
 
-    //assertion
     console.log(await(page.locator('css=.radiotextsty').last().isChecked()));
     await expect(page.locator('css=.radiotextsty').last()).toBeChecked();
 

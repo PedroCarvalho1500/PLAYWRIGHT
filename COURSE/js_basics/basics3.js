@@ -18,8 +18,9 @@ marks.push(65);
 console.log(marks);
 marks.pop()
 console.log(marks);
-marks.unshift(12);
-console.log(marks)
+console.log("HERE...")
+marks2.unshift(12);
+console.log(marks2)
 console.log(marks.indexOf(12));
 console.log(marks.includes(12));
 console.log(marks.includes(100));
@@ -66,3 +67,5 @@ var scores2 = [12,3,19,16,14];
 // })
 
 console.log(scores2.sort((a,b)=>a-b));
+
+

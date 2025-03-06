@@ -1,5 +1,4 @@
 const {test,expect, request} = require('@playwright/test');
-const {APIUtils} = require('./utils/APIUtils');
 
 
 
