@@ -20,8 +20,6 @@ jobs:
       - name: Install package.json NPM
         run: sudo npm install && npx playwright install
         continue-on-error: true
-      # - name: Install Playwright
-      #   run: npx playwright install --with-deps
 
       - name: Run Playwright cucumber tests
         run: npx cucumber-js
@@ -31,9 +29,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: results-cucumber-playwright
-          path: cucumber_report.html
+          path: report.html
 
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          path: cucumber_report.html
+          path: report.html
