@@ -34,4 +34,4 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
-          path: report.html
+          path: results-cucumber-playwright/report.html
