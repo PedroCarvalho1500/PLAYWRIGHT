@@ -14,8 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install package.json NPM
+        uses: npm install
+
       - name: Install Playwright
-        run: npx playwright install --with-deps && npm install @playwright/tests
+        run: npx playwright install --with-deps
 
       - name: Run Playwright cucumber tests
         run: npx cucumber-js
